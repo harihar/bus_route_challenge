@@ -1,11 +1,13 @@
 package com.goeuro.busroutes.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 
 @Getter
+@EqualsAndHashCode
 public class BusRoute {
     private final String routeId;
     private final LinkedHashSet<String> routeStations;
