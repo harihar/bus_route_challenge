@@ -16,8 +16,8 @@ public class BusRoutesController {
     private BusRoutesService busRoutesService;
 
     @RequestMapping("/direct")
-    public BusRoutesResponseDTO checkRoute(@RequestParam(name = "dep_sid") String departureSid,
-                                           @RequestParam(name = "arr_sid") String arrivalSid) {
+    public BusRoutesResponseDTO checkRoute(@RequestParam(name = "dep_sid") int departureSid,
+                                           @RequestParam(name = "arr_sid") int arrivalSid) {
         return busRoutesService.checkRoute(departureSid, arrivalSid);
     }
 }

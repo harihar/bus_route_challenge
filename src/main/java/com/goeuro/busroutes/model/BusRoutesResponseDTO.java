@@ -12,9 +12,9 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class BusRoutesResponseDTO {
     @JsonProperty("dep_sid")
-    private String departureStation;
+    private int departureStation;
     @JsonProperty("arr_sid")
-    private String arrivalStation;
+    private int arrivalStation;
     @JsonProperty("direct_bus_route")
     private boolean directBusRoute;
 }

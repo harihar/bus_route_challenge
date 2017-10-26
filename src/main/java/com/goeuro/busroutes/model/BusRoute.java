@@ -3,17 +3,17 @@ package com.goeuro.busroutes.model;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
-import java.util.Arrays;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 @Getter
 @EqualsAndHashCode
 public class BusRoute {
-    private final String routeId;
-    private final LinkedHashSet<String> routeStations;
+    private final int routeId;
+    private final LinkedHashSet<Integer> routeStations;
 
-    public BusRoute(String routeId, String[] stations) {
+    public BusRoute(int routeId, List<Integer> stations) {
         this.routeId = routeId;
-        this.routeStations = new LinkedHashSet<>(Arrays.asList(stations));
+        this.routeStations = new LinkedHashSet<>(stations);
     }
 }

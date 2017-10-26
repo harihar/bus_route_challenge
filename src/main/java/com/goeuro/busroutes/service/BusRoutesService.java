@@ -17,7 +17,7 @@ public class BusRoutesService {
     @Autowired
     private BusRoutesRepo busRoutesRepo;
 
-    public BusRoutesResponseDTO checkRoute(String departureSid, String arrivalSid) {
+    public BusRoutesResponseDTO checkRoute(int departureSid, int arrivalSid) {
         log.info("Received request for route check, departureSid - {}, arrivalSid - {}", departureSid, arrivalSid);
         Predicate<BusRoute> doesRouteIncludeDepartureAndArrivalStations =
                 busRoute -> busRoute.getRouteStations().contains(departureSid)

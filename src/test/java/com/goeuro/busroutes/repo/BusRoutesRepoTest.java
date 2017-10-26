@@ -1,6 +1,7 @@
 package com.goeuro.busroutes.repo;
 
-import com.goeuro.busroutes.Exception.ResourceNotFoundException;
+import com.goeuro.busroutes.exception.BusRouteLoaderException;
+import com.goeuro.busroutes.exception.ResourceNotFoundException;
 import com.goeuro.busroutes.model.BusRoute;
 import org.junit.Before;
 import org.junit.Test;
@@ -38,17 +39,17 @@ public class BusRoutesRepoTest {
 
     @Test
     public void testAllThrowsExceptionOnFileLoaderError() throws Exception {
-        when(busRoutesFileLoader.load()).thenThrow(new IOException("File not found"));
+        when(busRoutesFileLoader.load()).thenThrow(new BusRouteLoaderException("File not found"));
         assertThatExceptionOfType(ResourceNotFoundException.class)
                 .isThrownBy(() -> busRoutesRepo.findAll())
-                .withMessage("Error while loading routes sample");
+                .withMessage("Error while loading routes data");
     }
 
     private List<BusRoute> routes() {
         return Arrays.asList(
-                new BusRoute("1", new String[]{"152", "138", "150", "148", "106", "16", "20"}),
-                new BusRoute("2", new String[]{"5", "142", "116", "11"}),
-                new BusRoute("3", new String[]{"153", "114", "5", "138"})
+                new BusRoute(1, Arrays.asList(152, 138, 150, 148, 106, 16, 20)),
+                new BusRoute(2, Arrays.asList(5, 142, 116, 11)),
+                new BusRoute(3, Arrays.asList(153, 114, 5, 138))
         );
     }
 }

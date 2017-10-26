@@ -31,32 +31,32 @@ public class BusRoutesServiceTest {
     @Test
     public void testValidDirectRoute() {
         when(busRoutesRepo.findAll()).thenReturn(routes());
-        BusRoutesResponseDTO expected = new BusRoutesResponseDTO("138", "16", true);
-        BusRoutesResponseDTO busRoutesResponseDTO = busRoutesService.checkRoute("138", "16");
+        BusRoutesResponseDTO expected = new BusRoutesResponseDTO(138, 16, true);
+        BusRoutesResponseDTO busRoutesResponseDTO = busRoutesService.checkRoute(138, 16);
         assertThat(busRoutesResponseDTO).isEqualTo(expected);
     }
 
     @Test
     public void testValidDirectRouteInReverseDirection() {
         when(busRoutesRepo.findAll()).thenReturn(routes());
-        BusRoutesResponseDTO expected = new BusRoutesResponseDTO("16", "138", true);
-        BusRoutesResponseDTO busRoutesResponseDTO = busRoutesService.checkRoute("16", "138");
+        BusRoutesResponseDTO expected = new BusRoutesResponseDTO(16, 138, true);
+        BusRoutesResponseDTO busRoutesResponseDTO = busRoutesService.checkRoute(16, 138);
         assertThat(busRoutesResponseDTO).isEqualTo(expected);
     }
 
     @Test
     public void testInValidDirectRoute() {
         when(busRoutesRepo.findAll()).thenReturn(routes());
-        BusRoutesResponseDTO expected = new BusRoutesResponseDTO("138", "916", false);
-        BusRoutesResponseDTO busRoutesResponseDTO = busRoutesService.checkRoute("138", "916");
+        BusRoutesResponseDTO expected = new BusRoutesResponseDTO(138, 916, false);
+        BusRoutesResponseDTO busRoutesResponseDTO = busRoutesService.checkRoute(138, 916);
         assertThat(busRoutesResponseDTO).isEqualTo(expected);
     }
 
     private List<BusRoute> routes() {
         return Arrays.asList(
-                new BusRoute("1", new String[]{"152", "138", "150", "148", "106", "16", "20"}),
-                new BusRoute("2", new String[]{"5", "142", "116", "11"}),
-                new BusRoute("3", new String[]{"153", "114", "5", "138"})
+                new BusRoute(1, Arrays.asList(152, 138, 150, 148, 106, 16, 20)),
+                new BusRoute(2, Arrays.asList(5, 142, 116, 11)),
+                new BusRoute(3, Arrays.asList(153, 114, 5, 138))
         );
     }
 }

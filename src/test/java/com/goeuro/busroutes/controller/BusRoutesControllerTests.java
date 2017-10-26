@@ -1,6 +1,6 @@
 package com.goeuro.busroutes.controller;
 
-import com.goeuro.busroutes.Exception.Error;
+import com.goeuro.busroutes.exception.Error;
 import com.goeuro.busroutes.model.BusRoutesResponseDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,7 +32,7 @@ public class BusRoutesControllerTests {
         ResponseEntity<BusRoutesResponseDTO> response = restTemplate.getForEntity(apiUrl, BusRoutesResponseDTO.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).isEqualTo(new BusRoutesResponseDTO("138", "16", true));
+        assertThat(response.getBody()).isEqualTo(new BusRoutesResponseDTO(138, 16, true));
     }
 
     @Test
@@ -41,7 +41,7 @@ public class BusRoutesControllerTests {
         ResponseEntity<BusRoutesResponseDTO> response = restTemplate.getForEntity(apiUrl, BusRoutesResponseDTO.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).isEqualTo(new BusRoutesResponseDTO("138", "916", false));
+        assertThat(response.getBody()).isEqualTo(new BusRoutesResponseDTO(138, 916, false));
     }
 
     @Test

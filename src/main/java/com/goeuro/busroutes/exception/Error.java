@@ -1,4 +1,4 @@
-package com.goeuro.busroutes.Exception;
+package com.goeuro.busroutes.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

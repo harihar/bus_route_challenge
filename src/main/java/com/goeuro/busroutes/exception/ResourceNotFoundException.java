@@ -1,4 +1,4 @@
-package com.goeuro.busroutes.Exception;
+package com.goeuro.busroutes.exception;
 
 public class ResourceNotFoundException extends RuntimeException{
     public ResourceNotFoundException(String message) {
