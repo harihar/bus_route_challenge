@@ -1,9 +1,9 @@
 # Bus Route Challenge
 
-#Building
+# Building
 
 `./service.sh dev_build`
-#Running
+# Running
 
 `./service.sh dev_run --filePath=data/sample`
 
